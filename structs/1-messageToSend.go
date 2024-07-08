@@ -1,6 +1,6 @@
 package structs
 
 type MessageToSend struct {
-	Message     string
-	PhoneNumber int
+	message     string
+	phoneNumber int
 }

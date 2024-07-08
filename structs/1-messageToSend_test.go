@@ -1,17 +1,15 @@
-package main
+package structs
 
 import (
 	"fmt"
 	"testing"
-
-	"github.com/gustavosinacio/bootdev-go/structs"
 )
 
-func getMessageText(m structs.MessageToSend) string {
-	return fmt.Sprintf("Sending message: '%s' to: %v\n", m.Message, m.PhoneNumber)
+func getMessageText(m MessageToSend) string {
+	return fmt.Sprintf("Sending message: '%s' to: %v\n", m.message, m.phoneNumber)
 }
 
-func Test(t *testing.T) {
+func TestMessages(t *testing.T) {
 	type testCase struct {
 		message     string
 		expected    string
@@ -55,9 +53,9 @@ func Test(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		if output := getMessageText(structs.MessageToSend{
-			PhoneNumber: test.phoneNumber,
-			Message:     test.message,
+		if output := getMessageText(MessageToSend{
+			phoneNumber: test.phoneNumber,
+			message:     test.message,
 		}); output != test.expected {
 			t.Errorf(
 				"Test Failed: (%v, %v) -> expected: %v actual: %v",
