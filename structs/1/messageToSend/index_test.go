@@ -1,11 +1,11 @@
-package structs
+package messageToSend
 
 import (
 	"fmt"
 	"testing"
 )
 
-func getMessageText(m MessageToSend) string {
+func getMessageText(m messageToSend) string {
 	return fmt.Sprintf("Sending message: '%s' to: %v\n", m.message, m.phoneNumber)
 }
 
@@ -53,7 +53,7 @@ func TestMessages(t *testing.T) {
 	}
 
 	for _, test := range tests {
-		if output := getMessageText(MessageToSend{
+		if output := getMessageText(messageToSend{
 			phoneNumber: test.phoneNumber,
 			message:     test.message,
 		}); output != test.expected {
