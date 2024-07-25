@@ -23,6 +23,11 @@ type user struct {
 // default zero values are present, return false instead.
 
 func canSendMessage(mToSend messageToSend) bool {
-	// ?
-	return true
+	if mToSend.sender.name != "" &&
+		mToSend.recipient.name != "" &&
+		mToSend.sender.number != 0 &&
+		mToSend.recipient.number != 0 {
+		return true
+	}
+	return false
 }
